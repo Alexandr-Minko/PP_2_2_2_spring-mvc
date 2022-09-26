@@ -4,14 +4,15 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    // Метод, указывающий на класс конфигурации
+    // класс - конфигурация для всех Сервлетов (общий или корневой контекст)
+    // нам он не нужен, поэтому null
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
     }
 
 
-    // Добавление конфигурации, в которой инициализируем ViewResolver, для корректного отображения jsp.
+    // класс - конфигурация для одного Сервлета
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class<?>[]{
@@ -20,7 +21,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     }
 
 
-    /* Данный метод указывает url, на котором будет базироваться приложение */
+    // url за который отвечает DispatcherServlet. Если “/”, то за все
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
