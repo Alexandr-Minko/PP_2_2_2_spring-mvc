@@ -21,7 +21,7 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    public List<Car> index(int counter) {
+    public List<Car> getCarList(int counter) {
         if (counter >= 5) {
             return carList;
         } else {
